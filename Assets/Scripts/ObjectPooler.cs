@@ -7,7 +7,7 @@ public class ObjectPooler : MonoBehaviour
     public class Pool
     {
         public string tag;
-        public GameObject groundPrefab;
+        public GameObject prefab;
         public int maxPoolSize;
     }
 
@@ -31,7 +31,7 @@ public class ObjectPooler : MonoBehaviour
 
             for (int i = 0; i < pool.maxPoolSize; i++)
             {
-                GameObject obj = Instantiate(pool.groundPrefab);
+                GameObject obj = Instantiate(pool.prefab);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }

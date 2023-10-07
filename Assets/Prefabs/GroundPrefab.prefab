@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5663018054865735946}
   - component: {fileID: 5049841215336737244}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: GroundPrefab
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 118
+  m_Constraints: 114
   m_CollisionDetection: 1
 --- !u!114 &5049841215336737244
 MonoBehaviour:

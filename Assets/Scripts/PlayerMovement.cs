@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private float tileSpacing = 1f;
     private float jumpForce = 7f;
     private float jumpStartTime;
-    private float rotationSpeed = 130f;
+    private float rotationSpeed = 140f;
 
     private void Start()
     {
