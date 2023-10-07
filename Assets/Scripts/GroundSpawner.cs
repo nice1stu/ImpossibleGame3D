@@ -9,7 +9,7 @@ public class GroundSpawner : MonoBehaviour
         objectPooler = ObjectPooler.Instance;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         Vector3 currentPosition = transform.position;
         objectPooler.SpawnFromPool("Ground", currentPosition, Quaternion.identity);

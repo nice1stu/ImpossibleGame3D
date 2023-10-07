@@ -3,22 +3,25 @@ using UnityEngine;
 
 public class GroundTile : MonoBehaviour, IPooledObjects
 {
-    public float tileSpacing = 1f;
+    public float tileSpacing = 1.1f;
+
+    private float timeSinceSpawn;
 
     public void OnObjectSpawn()
     {
         Debug.Log("Spawned");
-        StartCoroutine(DespawnAfterDelay());
+        timeSinceSpawn = 0f;
     }
 
-    private IEnumerator DespawnAfterDelay()
+    public void Update()
     {
-        yield return new WaitForSeconds(1f);
-        ObjectPooler.Instance.DespawnToPool("Ground", gameObject);
-    }
+        timeSinceSpawn += Time.deltaTime;
 
-    public void FixedUpdate()
-    {
+        if (timeSinceSpawn > 0.3f)
+        {
+            ObjectPooler.Instance.DespawnToPool("Ground", gameObject);
+        }
+
         transform.position += new Vector3(0, 0, tileSpacing);
     }
 }
