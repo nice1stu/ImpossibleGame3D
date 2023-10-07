@@ -17,11 +17,18 @@ public class GroundTile : MonoBehaviour, IPooledObjects
     {
         timeSinceSpawn += Time.deltaTime;
 
-        if (timeSinceSpawn > 0.3f)
+        if (timeSinceSpawn > 0.5f)
         {
-            ObjectPooler.Instance.DespawnToPool("Ground", gameObject);
+            StartCoroutine(DestroyGameObject());
+            //ObjectPooler.Instance.DespawnToPool("Ground", gameObject);
         }
 
         transform.position += new Vector3(0, 0, tileSpacing);
+    }
+    
+    private IEnumerator DestroyGameObject()
+    {
+        yield return null;
+        Destroy(gameObject);
     }
 }
