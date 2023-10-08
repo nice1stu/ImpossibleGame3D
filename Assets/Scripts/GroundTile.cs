@@ -1,34 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class GroundTile : MonoBehaviour, IPooledObjects
+public class GroundTile : MonoBehaviour
 {
-    public float tileSpacing = 1.1f;
-
-    private float timeSinceSpawn;
-
-    public void OnObjectSpawn()
-    {
-        Debug.Log("Spawned");
-        timeSinceSpawn = 0f;
-    }
+    [HideInInspector] public float moveSpeed = 2f;
 
     public void Update()
     {
-        timeSinceSpawn += Time.deltaTime;
-
-        if (timeSinceSpawn > 0.5f)
-        {
-            StartCoroutine(DestroyGameObject());
-            //ObjectPooler.Instance.DespawnToPool("Ground", gameObject);
-        }
-
-        transform.position += new Vector3(0, 0, tileSpacing);
+        transform.position += new Vector3(0, 0, -moveSpeed) * Time.deltaTime;;
     }
-    
-    private IEnumerator DestroyGameObject()
-    {
-        yield return null;
-        Destroy(gameObject);
-    }
+
 }
