@@ -16,4 +16,4 @@ A ground tile spawner continuously spawns the ground tiles from the object pool.
 ![RandomGeneration](https://github.com/nice1stu/ImpossibleGame3D/assets/112468923/2869f532-cd98-4e49-a40e-7691ecc7daf4)
 
 Check out the Game Trailer  
-[[click to watch the video](https://img.youtube.com/vi/lCNW2TioChc/maxresdefault.jpg)](https://youtu.be/lCNW2TioChc)  
+[![click to watch the video](https://img.youtube.com/vi/lCNW2TioChc/maxresdefault.jpg)](https://youtu.be/lCNW2TioChc)  
