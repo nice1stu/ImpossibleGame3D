@@ -4,6 +4,8 @@ Just a fun weekend project to try to make the Imossible Game in 3D, but not only
   
 Duration: 2 Days, so far  
 Tech: Unity, C#  
+  
+![GameScene](https://github.com/nice1stu/ImpossibleGame3D/assets/112468923/3325d0c7-f4ea-426f-afa3-cbef5976fcb0)
 
 Just for fun and to refresh my Unity / C# skills, decided to reimagine the Impossible Game, but in 3D, but also instead of designing an entire level, made it randomly generate the floor and hazards that the player encounters. One of the main objectives of this little side project was also to teach myself a little about Object Pooling, a very efficient method of instantiating many reuseable objects in a scene. By instantiating a pool of objects to be used in game at game start, and instead of instantiating and destroying the objects, they are simply activated from the pool when need, deactived and returned to the pool when no longer required ready to be used again.  
 
@@ -14,4 +16,4 @@ A ground tile spawner continuously spawns the ground tiles from the object pool.
 ![RandomGeneration](https://github.com/nice1stu/ImpossibleGame3D/assets/112468923/2869f532-cd98-4e49-a40e-7691ecc7daf4)
 
 Check out the Game Trailer  
-[![click to watch the video](https://img.youtu.be/lCNW2TioChc/maxresdefault.jpg)](https://youtu.be/lCNW2TioChc)  
+[![click to watch the video]((https://i9.ytimg.com/vi_webp/lCNW2TioChc/mq2.webp?sqp=CLyNjKkG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBUgcigRMA8=&rs=AOn4CLDiWFygDLd3LfSTkWlAF4g-uEVQPw)https://i9.ytimg.com/vi_webp/lCNW2TioChc/mq2.webp?sqp=CLyNjKkG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBUgcigRMA8=&rs=AOn4CLDiWFygDLd3LfSTkWlAF4g-uEVQPw)](https://youtu.be/lCNW2TioChc)  
