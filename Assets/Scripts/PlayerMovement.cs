@@ -4,36 +4,38 @@ public class PlayerMovement : MonoBehaviour
 {
     public bool isGrounded = true;
     
-    private Rigidbody rb;
-    private float tileSpacing = 1f;
-    private float jumpForce = 7f;
-    private float jumpStartTime;
-    private float rotationSpeed = 140f;
+    private Rigidbody _rb;
+    
+    private readonly float _jumpForce = 7f;
+    private readonly float _fallingForce = -10f;
+    private readonly float _rotationSpeed = 6f;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_rb.velocity.y < -0.1f)
+            _rb.AddForce(0,_fallingForce,0);
     }
 
     private void Update()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f))
-            isGrounded = true;
-        else
-            isGrounded = false;
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, out _, 1.5f);
 
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        switch (isGrounded)
         {
-            rb.velocity = new Vector3(0, jumpForce, 0);
-            jumpStartTime = Time.time;
-        }
-        
-        float rotationProgress = (Time.time - jumpStartTime) / rotationSpeed;
-        
-        if (!isGrounded && rotationProgress < 1f)
-        {
-            rb.rotation = Quaternion.Euler(rotationProgress * 90, 0, 0) * rb.rotation;
+            case true when Input.GetButtonDown("Jump"):
+                _rb.velocity = new Vector3(0, _jumpForce, 0);
+                break;
+            case false:
+            {
+                float desiredAngularVelocity = _rotationSpeed * Mathf.PI / 180f;
+                _rb.AddTorque(transform.right * desiredAngularVelocity);
+                break;
+            }
         }
     }
 }

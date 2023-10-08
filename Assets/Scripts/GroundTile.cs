@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class GroundTile : MonoBehaviour
@@ -7,7 +6,6 @@ public class GroundTile : MonoBehaviour
 
     public void Update()
     {
-        transform.position += new Vector3(0, 0, -moveSpeed) * Time.deltaTime;;
+        transform.position += new Vector3(0, 0, -moveSpeed) * Time.deltaTime;
     }
-
 }

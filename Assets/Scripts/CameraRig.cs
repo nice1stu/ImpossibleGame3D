@@ -1,11 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraRig : MonoBehaviour, IPlayerTracking
 {
     public Transform playerTransform;
+    
+    private bool _isPlayerTransformNotNull;
+
+    private void Start()
+    {
+        _isPlayerTransformNotNull = playerTransform != null;
+    }
 
     private void Update()
     {
@@ -14,12 +18,15 @@ public class CameraRig : MonoBehaviour, IPlayerTracking
 
     public void FollowPlayer()
     {
-    
-        if (playerTransform != null)
+        if (_isPlayerTransformNotNull)
         {
-            // Set the object's position to match the player's position on the X and Z axes
-            Vector3 newPosition = new Vector3(playerTransform.position.x, playerTransform.position.y + 5, (playerTransform.position.z-5));
-            transform.position = newPosition;
+            var position = playerTransform.position;
+            Vector3 newPosition = new Vector3(position.x, position.y + 6.5f, (position.z-4));
+            var rotation = transform.rotation;
+            rotation = Quaternion.Euler(+35, rotation.eulerAngles.y, rotation.eulerAngles.z);
+            var transform1 = transform;
+            transform1.rotation = rotation;
+            transform1.position = newPosition;
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -6,24 +5,23 @@ using Random = UnityEngine.Random;
 
 public class GroundSpawnerInst : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab;
     private float Interval => 1f/platformMoveSpeed;
-    [SerializeField] private float platformMoveSpeed = 4f;
+    private GameObject _platformPool;
+    private IObjectPool<GameObject> _pool;
     
-    private IObjectPool<GameObject> pool;
-    private GameObject platformPool;
+    [SerializeField] private float platformMoveSpeed = 4f;
     [SerializeField] private float lifetime = 5f;
     [SerializeField] private int startingPlatformCount = 50;
-
+    [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject[] hazards;
     [SerializeField, Range(0f, 1f)] private float hazardChance = 0.1f;
 
     private void Awake()
     {
-        platformPool = new GameObject("Platform Pool");
+        _platformPool = new GameObject("Platform Pool");
         
-        pool = new ObjectPool<GameObject>(
-            () => Instantiate(prefab, platformPool.transform),
+        _pool = new ObjectPool<GameObject>(
+            () => Instantiate(prefab, _platformPool.transform),
             OnGet,
             x => x.SetActive(false),
             Destroy,
@@ -33,7 +31,7 @@ public class GroundSpawnerInst : MonoBehaviour
     private void OnGet(GameObject obj)
     {
         obj.SetActive(true);
-        StartCoroutine(ReturntoPool(obj));
+        StartCoroutine(ReturnToPool(obj));
     }
 
     private IEnumerator Start()
@@ -45,11 +43,12 @@ public class GroundSpawnerInst : MonoBehaviour
             var randomAmount = Random.Range(3, 8);
             yield return SpawnPlatformSegment(randomAmount);
             var randomHeight = Random.Range(-1, 2);
-            transform.position = new Vector3(
-                transform.position.x, 
-                transform.position.y + randomHeight,
-                transform.position.z);
+            var transform1 = transform;
+            var position = transform1.position;
+            position = new Vector3(position.x, position.y + randomHeight, position.z);
+            transform1.position = position;
         }
+        // ReSharper disable once IteratorNeverReturns
     }
 
     private GameObject SpawnHazard()
@@ -75,7 +74,7 @@ public class GroundSpawnerInst : MonoBehaviour
             }
             else
             {
-                instance = pool.Get();
+                instance = _pool.Get();
                 count = 0;
             }
 
@@ -87,18 +86,18 @@ public class GroundSpawnerInst : MonoBehaviour
         }
     }
 
-    private IEnumerator ReturntoPool(GameObject instance)
+    private IEnumerator ReturnToPool(GameObject instance)
     {
         yield return new WaitForSeconds(lifetime);
-        pool.Release(instance);
+        _pool.Release(instance);
     }
 
     private void StartingPlatform()
     {
         for (int i = 0; i < startingPlatformCount; i++)
         {
-            var instance = pool.Get();
-            instance.transform.SetParent(platformPool.transform);
+            var instance = _pool.Get();
+            instance.transform.SetParent(_platformPool.transform);
             instance.transform.SetPositionAndRotation(new Vector3(transform.position.x, 0f, i), Quaternion.identity);
             if (instance.TryGetComponent<GroundTile>(out var groundTile))
                 groundTile.moveSpeed = platformMoveSpeed;

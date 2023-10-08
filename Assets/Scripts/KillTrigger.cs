@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class KillTrigger : MonoBehaviour
@@ -17,9 +17,9 @@ public class KillTrigger : MonoBehaviour
             }
 
             if (other.gameObject.TryGetComponent(out PlayerMovement movement))
-            {
                 movement.enabled = false;
-            }
+            
+            Erupt();
         }
     }
 
@@ -35,12 +35,17 @@ public class KillTrigger : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void Explode()
+    private void Erupt()
     {
-        /*GroundTile tiles = GameObject.FindObjectsByType(FindObjectsInactive.Exclude);
-        foreach (var VARIA in tiles)
+        var tiles = FindObjectsByType<GroundTile>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+        foreach (var groundTile in tiles)
         {
-            
-        }*/
+            if (!groundTile.TryGetComponent(out Rigidbody rb))
+                rb = groundTile.AddComponent<Rigidbody>();
+
+            float force = 10f;
+            rb.AddForce((Random.insideUnitSphere + Vector3.up).normalized * force, ForceMode.Impulse);
+            groundTile.enabled = false;
+        }
     }
 }
