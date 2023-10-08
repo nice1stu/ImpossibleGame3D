@@ -725,8 +725,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1133072301}
-  - component: {fileID: 1133072302}
-  - component: {fileID: 1133072303}
   - component: {fileID: 1133072304}
   m_Layer: 0
   m_Name: GroundSpawner
@@ -751,31 +749,6 @@ Transform:
   - {fileID: 1276493863}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1133072302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133072300}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3933ec1f42dadc0499bdb7f37192d7e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1133072303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133072300}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa7b6f60491c1634392b8a365fa00352, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 372879862}
 --- !u!114 &1133072304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,7 +763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1753124254266972520, guid: 2edd0d3ace46ed14fae81517a814f32f, type: 3}
   platformMoveSpeed: 6
-  lifetime: 20
+  lifetime: 10
   startingPlatformCount: 50
   hazards:
   - {fileID: 603811849188397926, guid: da25a8739dc490a489672feedd40309e, type: 3}
@@ -815,7 +788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1276493863
 Transform:
   m_ObjectHideFlags: 0

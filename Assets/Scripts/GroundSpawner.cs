@@ -12,7 +12,7 @@ public class GroundSpawnerInst : MonoBehaviour
     
     private IObjectPool<GameObject> pool;
     private GameObject platformPool;
-    [SerializeField] private float lifetime = 10f;
+    [SerializeField] private float lifetime = 5f;
     [SerializeField] private int startingPlatformCount = 50;
 
     [SerializeField] private GameObject[] hazards;
