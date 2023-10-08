@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc09b1e90805854f889c1b9d1fdc860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverPanel: {fileID: 502733823231554277}
   duration: 2
 --- !u!1 &4923242836182131629
 GameObject:

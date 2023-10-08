@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KillTrigger : MonoBehaviour
 {
-    [SerializeField] private float duration = 1f;
+    [SerializeField] private float duration = 4f;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

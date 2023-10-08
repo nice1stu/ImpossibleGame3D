@@ -208,6 +208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KillZone
       objectReference: {fileID: 0}
+    - target: {fileID: 8855334184332842795, guid: e18d79726310a9446af5ae9f28cb80d0, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 1753124254266972520}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
