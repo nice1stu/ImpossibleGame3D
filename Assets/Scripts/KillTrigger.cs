@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KillTrigger : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class KillTrigger : MonoBehaviour
                 movement.enabled = false;
             
             Erupt();
+            SceneManager.LoadScene(2);
         }
     }
 
