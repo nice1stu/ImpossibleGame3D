@@ -782,7 +782,7 @@ MonoBehaviour:
   - {fileID: 603811849188397926, guid: da25a8739dc490a489672feedd40309e, type: 3}
   - {fileID: 7051156101804866460, guid: f5439b57a01a9404dbbdff03847c318e, type: 3}
   - {fileID: 5302056978017436499, guid: 3ee755bf33ac7cb4ca44ed232def1853, type: 3}
-  hazardChance: 0.208
+  hazardChance: 1
 --- !u!1 &1222537118
 GameObject:
   m_ObjectHideFlags: 0
