@@ -1,6 +1,6 @@
 Impossible Game 3D !
 
-Just a fun weekend project to try to make the Imossible Game in 3D, but not only that an endless runner game.  
+Just a fun weekend project to try to make the Impossible Game in 3D, but not only that an endless runner game.  
   
 Duration: 2 Days, so far  
 Tech: Unity, C#  
