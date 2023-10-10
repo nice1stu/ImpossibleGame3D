@@ -1,38 +1,19 @@
 using UnityEngine;
 using System;
+using TMPro;
 
 
 public class Stopwatch : MonoBehaviour
 {
-    private bool _isRunning;
-    private float _startTime;
+    [SerializeField] private TextMeshProUGUI stopwatchText;
     private float _elapsedTime;
-    void Start()
-    {
-        _startTime = Time.time;
-        StartStopwatch();
-    }
 
     void Update()
     {
-        if (_isRunning)
-        {
-            _elapsedTime = Time.time - _startTime;
+            _elapsedTime += Time.deltaTime;
+            int minutes = Mathf.FloorToInt(_elapsedTime / 60);
+            int seconds = Mathf.FloorToInt(_elapsedTime % 60);
+            stopwatchText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
             Debug.Log(_elapsedTime);
-        }
-
-        TimeSpan time = TimeSpan.FromSeconds(_startTime);
-        //CurrentTimeText.text = time.Minutes.ToString() + ":" + time.Seconds.ToString();
-    }
-
-    public void StartStopwatch()
-    {
-        _isRunning = !_isRunning;
-    }
-
-    public void ResetStopwatch()
-    {
-        _startTime = Time.time;
-        _isRunning = false;
     }
 }
