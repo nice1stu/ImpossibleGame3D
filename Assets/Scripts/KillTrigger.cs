@@ -10,7 +10,6 @@ public class KillTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Game Over");
             if (other.gameObject.TryGetComponent(out Rigidbody rb))
             {
                 rb.isKinematic = true;
