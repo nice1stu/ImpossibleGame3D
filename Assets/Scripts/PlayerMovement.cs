@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     
     private readonly float _jumpForce = 7f;
     private readonly float _fallingForce = -15f;
-    private readonly float _rotationSpeed = 7f;
+    private readonly float _rotationSpeed = 15f;
 
     private void Start()
     {
