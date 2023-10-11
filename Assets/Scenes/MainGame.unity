@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406bf3d07151c9a4e8adf657c9f643ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopwatchText: {fileID: 1629262002}
+  countdownText: {fileID: 1629262002}
 --- !u!1 &372879858
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +820,7 @@ MonoBehaviour:
   - {fileID: 603811849188397926, guid: da25a8739dc490a489672feedd40309e, type: 3}
   - {fileID: 7051156101804866460, guid: f5439b57a01a9404dbbdff03847c318e, type: 3}
   - {fileID: 5302056978017436499, guid: 3ee755bf33ac7cb4ca44ed232def1853, type: 3}
-  hazardChance: 0
+  hazardChance: 0.102
 --- !u!1 &1222537118
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406bf3d07151c9a4e8adf657c9f643ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopwatchText: {fileID: 0}
+  countdownText: {fileID: 0}
 --- !u!1 &1629262001
 GameObject:
   m_ObjectHideFlags: 0
