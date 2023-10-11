@@ -13,6 +13,17 @@ public class LevelManager : MonoBehaviour
         int minutes = Mathf.FloorToInt(_countdownTime / 60);
         int seconds = Mathf.FloorToInt(_countdownTime % 60);
         countdownText.text = $"{minutes:00}:{seconds:00}";
+
+        // Change the color of the countdown clock numbers to red when time reaches 10 seconds.
+        if (_countdownTime <= 10)
+        {
+            countdownText.color = Color.red;
+        }
+        else
+        {
+            countdownText.color = Color.white;
+        }
+
         if (_countdownTime <= 0)
         {
             RotateCamera();
@@ -27,3 +38,4 @@ public class LevelManager : MonoBehaviour
         Camera.main.transform.rotation = newRotation;
     }
 }
+
