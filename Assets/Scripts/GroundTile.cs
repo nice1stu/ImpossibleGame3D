@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class GroundTile : MonoBehaviour
 {
-    [HideInInspector] public float moveSpeed = 2f;
+    [HideInInspector] public float moveSpeed = 4f;
+    //Allow for faster moveSpeed in later levels
 
     public void Update()
     {
