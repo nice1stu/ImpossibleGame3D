@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 963194225}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1222537121
@@ -902,7 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406bf3d07151c9a4e8adf657c9f643ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownText: {fileID: 0}
+  countdownText: {fileID: 1629262002}
 --- !u!1 &1629262001
 GameObject:
   m_ObjectHideFlags: 0
