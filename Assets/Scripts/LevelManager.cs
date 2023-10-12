@@ -28,9 +28,12 @@ public class LevelManager : MonoBehaviour
     private void RotateCamera()
     {
         //Add random change camera angle of 90, 180, -90 in later levels
-        Quaternion currentRotation = Camera.main.transform.rotation;
-        Quaternion newRotation = Quaternion.Euler(0, 0, currentRotation.eulerAngles.z + 180);
-        Camera.main.transform.rotation = newRotation;
+        if (Camera.main != null)
+        {
+            Quaternion currentRotation = Camera.main.transform.rotation;
+            Quaternion newRotation = Quaternion.Euler(0, 0, currentRotation.eulerAngles.z + 180);
+            Camera.main.transform.rotation = newRotation;
+        }
     }
 }
 
