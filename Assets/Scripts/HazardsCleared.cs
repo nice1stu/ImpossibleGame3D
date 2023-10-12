@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 
-public class PointCollector : MonoBehaviour
+public class HazardsCleared : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
