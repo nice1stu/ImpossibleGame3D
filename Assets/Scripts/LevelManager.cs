@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -8,6 +9,11 @@ public class LevelManager : MonoBehaviour
     
     private float _countdownTime = 60;
     //Allow for shorter countdown times for more frequent camera change and faster / more hazards
+
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
 
     private void Update()
     {

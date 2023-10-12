@@ -18,9 +18,7 @@ public class KillTrigger : MonoBehaviour
 
             if (other.gameObject.TryGetComponent(out PlayerMovement movement))
                 movement.enabled = false;
-            
             Erupt();
-            SceneManager.LoadScene(2);
         }
     }
 
@@ -34,6 +32,7 @@ public class KillTrigger : MonoBehaviour
             elapsed += Time.unscaledDeltaTime;
         }
         Time.timeScale = 0f;
+        SceneManager.LoadScene(2);
     }
 
     private void Erupt()
