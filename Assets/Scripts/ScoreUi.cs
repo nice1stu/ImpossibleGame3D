@@ -1,26 +1,22 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
-namespace DefaultNamespace
+public class ScoreUi : MonoBehaviour
 {
-    public class ScoreUi : MonoBehaviour
+    [SerializeField] private TMP_Text scoreText;
+    private void OnEnable()
     {
-        [SerializeField] private TMP_Text scoreText;
-        private void OnEnable()
-        {
-            ScoreCounter.scoreUpdatedEvent += onScoreUpdated;
-            onScoreUpdated(ScoreCounter.Score);
-        }
+        ScoreCounter.ScoreUpdatedEvent += OnScoreUpdated;
+        OnScoreUpdated(ScoreCounter.Score);
+    }
 
-        private void onScoreUpdated(int obj)
-        {
-            scoreText.text = obj.ToString();
-        }
+    private void OnScoreUpdated(int obj)
+    {
+        scoreText.text = obj.ToString();
+    }
 
-        private void OnDisable()
-        {
-            ScoreCounter.scoreUpdatedEvent -= onScoreUpdated;
-        }
+    private void OnDisable()
+    {
+        ScoreCounter.ScoreUpdatedEvent -= OnScoreUpdated;
     }
 }

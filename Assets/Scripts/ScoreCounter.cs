@@ -1,30 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-namespace DefaultNamespace
+public class ScoreCounter : MonoBehaviour
 {
-    public class ScoreCounter : MonoBehaviour
-    {
-        private static int score;
+    private static int _score;
         
-        public static int Score
+    public static int Score
+    {
+        get => _score;
+        set
         {
-            get
-            {
-                return score;
-            }
-            set
-            {
-                score = value;
-                scoreUpdatedEvent?.Invoke(Score);
-                Debug.Log(Score);
-            }
+            _score = value;
+            ScoreUpdatedEvent?.Invoke(Score);
         }
+    }
 
-        public static event Action<int> scoreUpdatedEvent; 
-        private void Start()
-        {
-            Score = 0;
-        }
+    public static event Action<int> ScoreUpdatedEvent; 
+    private void Start()
+    {
+        Score = 0;
     }
 }
