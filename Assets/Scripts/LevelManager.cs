@@ -32,7 +32,6 @@ public class LevelManager : MonoBehaviour
 
     private void RotateCamera()
     {
-        //Add random change camera angle of 90, 180, -90 in later levels
         if (Camera.main != null)
         {
             Quaternion currentRotation = Camera.main.transform.rotation;
@@ -40,5 +39,20 @@ public class LevelManager : MonoBehaviour
             Camera.main.transform.rotation = newRotation;
         }
     }
+    
+    /*
+     * private void RotateCamera()
+    {
+        // random change camera angle of 0, 90, 180, -90 in later levels
+        if (Camera.main != null)
+            {
+                Quaternion currentRotation = Camera.main.transform.rotation;
+                int angle = Random.Range(0, 4); // Generate a random number between 0 and 3, inclusive
+                angle *= 90; // Multiply the result by 90 to get one of the four possible angles
+                Quaternion newRotation = Quaternion.Euler(0, 0, currentRotation.eulerAngles.z + angle);
+                Camera.main.transform.rotation = newRotation;
+            }
+    }
+     */
 }
 
