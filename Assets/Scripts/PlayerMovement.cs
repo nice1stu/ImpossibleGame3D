@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _isJumping;
     private Quaternion _targetRotation;
     private Quaternion _startRotation;
-    private const float RotationDuration = 1.0f;
+    private const float RotationDuration = 1.2f;
     private float _rotationTimer;
     private bool _rotating;
 

@@ -5,13 +5,13 @@ using TMPro;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI countdownText;
-    
-    private float _countdownTime = 60;
-    //Allow for shorter countdown times for more frequent camera change and faster / more hazards
+    [SerializeField] private float setCountdownTimer = 15f;
 
+    private float _countdownTime;
     private void Awake()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1; 
+        _countdownTime = setCountdownTimer;
     }
 
     private void Update()
@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour
         if (_countdownTime <= 0)
         {
             RotateCamera();
-            _countdownTime = 60;
+            _countdownTime = setCountdownTimer;
         }
     }
 
