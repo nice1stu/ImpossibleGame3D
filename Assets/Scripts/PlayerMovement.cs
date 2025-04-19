@@ -31,10 +31,7 @@ public class PlayerMovement : MonoBehaviour
             float t = Mathf.Clamp01(_rotationTimer / RotationDuration);
             transform.rotation = Quaternion.Slerp(_startRotation, _targetRotation, t);
 
-            if (t >= 1f)
-            {
-                _rotating = false;
-            }
+            if (t >= 1f) _rotating = false;
         }
     }
 
@@ -48,13 +45,9 @@ public class PlayerMovement : MonoBehaviour
             _isJumping = true;
             _rotating = true;
             _startRotation = transform.rotation;
-            _targetRotation = _startRotation * Quaternion.Euler(-180f, 0f, 0f); // Rotate 180 degrees around local x-axis (forward)
+            _targetRotation = _startRotation * Quaternion.Euler(-180f, 0f, 0f);
             _rotationTimer = 0f;
         }
-
-        if (_isJumping && isGrounded)
-        {
-            _isJumping = false;
-        }
+        if (_isJumping && isGrounded) _isJumping = false;
     }
 }
