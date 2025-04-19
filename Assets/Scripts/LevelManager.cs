@@ -8,6 +8,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float setCountdownTimer = 15f;
 
     private float _countdownTime;
+    private Camera _camera;
+
+    private void Start()
+    {
+        _camera = Camera.main;
+    }
+
     private void Awake()
     {
         Time.timeScale = 1; 
@@ -30,29 +37,27 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void RotateCamera()
-    {
-        if (Camera.main != null)
-        {
-            Quaternion currentRotation = Camera.main.transform.rotation;
-            Quaternion newRotation = Quaternion.Euler(0, 0, currentRotation.eulerAngles.z + 180);
-            Camera.main.transform.rotation = newRotation;
-        }
-    }
+    // private void RotateCamera()
+    // {
+    //     if (_camera)
+    //     {
+    //         Quaternion currentRotation = _camera.transform.rotation;
+    //         Quaternion newRotation = Quaternion.Euler(0, 0, currentRotation.eulerAngles.z + 180);
+    //         _camera.transform.rotation = newRotation;
+    //     }
+    // }
     
-    /*
-     * private void RotateCamera()
+private void RotateCamera()
     {
         // random change camera angle of 0, 90, 180, -90 in later levels
-        if (Camera.main != null)
+        if (_camera != null)
             {
-                Quaternion currentRotation = Camera.main.transform.rotation;
+                Quaternion currentRotation = _camera.transform.rotation;
                 int angle = Random.Range(0, 4); // Generate a random number between 0 and 3, inclusive
                 angle *= 90; // Multiply the result by 90 to get one of the four possible angles
                 Quaternion newRotation = Quaternion.Euler(0, 0, currentRotation.eulerAngles.z + angle);
-                Camera.main.transform.rotation = newRotation;
+                _camera.transform.rotation = newRotation;
             }
     }
-     */
 }
 
