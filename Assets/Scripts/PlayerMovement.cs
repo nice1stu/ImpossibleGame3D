@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_rb.velocity.y < -0.1f)
+        if (_rb.linearVelocity.y < -0.1f)
             _rb.AddForce(0,_fallingForce,0);
     }
 
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         switch (isGrounded)
         {
             case true when Input.GetButtonDown("Jump"):
-                _rb.velocity = new Vector3(0, _jumpForce, 0);
+                _rb.linearVelocity = new Vector3(0, _jumpForce, 0);
                 break;
             case false:
             {
