@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownText: {fileID: 1629262002}
+  setCountdownTimer: 15
 --- !u!114 &97635923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,7 +895,6 @@ GameObject:
   - component: {fileID: 1222537121}
   - component: {fileID: 1222537120}
   - component: {fileID: 1222537119}
-  - component: {fileID: 1222537122}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -952,19 +952,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1222537122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222537118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 406bf3d07151c9a4e8adf657c9f643ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countdownText: {fileID: 1629262002}
 --- !u!1 &1629262001
 GameObject:
   m_ObjectHideFlags: 0

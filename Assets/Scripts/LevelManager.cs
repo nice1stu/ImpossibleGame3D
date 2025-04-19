@@ -13,6 +13,11 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main;
+        Debug.Assert(_camera != null, "Main Camera not found in the scene!");
+        if (_camera == null)
+        {
+            enabled = false;
+        }
     }
 
     private void Awake()
@@ -47,17 +52,13 @@ public class LevelManager : MonoBehaviour
     //     }
     // }
     
-private void RotateCamera()
+    private void RotateCamera()
     {
-        // random change camera angle of 0, 90, 180, -90 in later levels
-        if (_camera != null)
-            {
-                Quaternion currentRotation = _camera.transform.rotation;
-                int angle = Random.Range(0, 4); // Generate a random number between 0 and 3, inclusive
-                angle *= 90; // Multiply the result by 90 to get one of the four possible angles
-                Quaternion newRotation = Quaternion.Euler(0, 0, currentRotation.eulerAngles.z + angle);
-                _camera.transform.rotation = newRotation;
-            }
+        Quaternion currentRotation = _camera.transform.rotation;
+        int randomDirection = Random.Range(0, 2);
+        float rotationAmount = (randomDirection == 0) ? 90f : -90f;
+        Quaternion newRotation = Quaternion.Euler(0, 0, currentRotation.eulerAngles.z + rotationAmount);
+        _camera.transform.rotation = newRotation;
     }
 }
 
